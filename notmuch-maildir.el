@@ -116,10 +116,10 @@
 ;;;###autoload
 (defun notmuch-maildir-inject-section ()
   "Inject `notmuch-hello-insert-maildirs' into `notmuch-hello-sections'."
-  (unless (member 'notmuch-hello-insert-maildirs notmuch-hello-sections)
-    (let ((cons (member 'notmuch-hello-insert-footer notmuch-hello-sections)))
+  (unless (member #'notmuch-hello-insert-maildirs notmuch-hello-sections)
+    (let ((cons (member #'notmuch-hello-insert-footer notmuch-hello-sections)))
       (setcdr cons (cons (car cons) (cdr cons)))
-      (setcar cons 'notmuch-hello-insert-maildirs))))
+      (setcar cons #'notmuch-hello-insert-maildirs))))
 
 ;;; _
 (provide 'notmuch-maildir)
